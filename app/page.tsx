@@ -1,9 +1,8 @@
-
 "use client";
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import quizData from "./questions.json";
 
- const Home = ()=> {
+const Home = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectAns, setSelectedAns] = useState<string | null>(null);
   const [answerStatus, setAnsStatus] = useState<string>("");
@@ -11,22 +10,26 @@ import quizData from "./questions.json";
   const [lowestScore, setLowestScore] = useState<number>(100);
 
   // *************************************************  Decode quiz data ****************************
-  const decodedData = useMemo(() => 
-    quizData.map((item) => ({
-      ...item,
-      category: decodeURIComponent(item.category),
-      question: decodeURIComponent(item.question),
-      correct_answer: decodeURIComponent(item.correct_answer),
-      incorrect_answers: item.incorrect_answers.map(decodeURIComponent),
-    })),
+  const decodedData = useMemo(
+    () =>
+      quizData.map((item) => ({
+        ...item,
+        category: decodeURIComponent(item.category),
+        question: decodeURIComponent(item.question),
+        correct_answer: decodeURIComponent(item.correct_answer),
+        incorrect_answers: item.incorrect_answers.map(decodeURIComponent),
+      })),
     []
   );
 
-  //****************************************  Calculate the current quiz question 
+  //****************************************  Calculate the current quiz question
   const currentQuiz = decodedData[currentIndex];
   // Shuffle options only when currentQuiz changes
   const shuffledOptions = useMemo(() => {
-    const options = [...currentQuiz.incorrect_answers, currentQuiz.correct_answer];
+    const options = [
+      ...currentQuiz.incorrect_answers,
+      currentQuiz.correct_answer,
+    ];
     const newArr = options.slice();
     for (let i = newArr.length - 1; i > 0; i--) {
       const rand = Math.floor(Math.random() * (i + 1));
@@ -35,7 +38,7 @@ import quizData from "./questions.json";
     return newArr;
   }, [currentQuiz]);
 
-  const DifficultyStars = useCallback((difficulty: any) => {
+  const DifficultyStars = useCallback((difficulty: string) => {
     let stars = 0;
     if (difficulty === "easy") {
       stars = 1;
@@ -92,19 +95,26 @@ import quizData from "./questions.json";
   }, [currentIndex, decodedData.length]);
 
   const progress = ((currentIndex + 1) / decodedData.length) * 100;
-  const progressBarColor = maxScore >= 90 ? "green" : maxScore >= 40 ? "orange" : "red";
+  const progressBarColor =
+    maxScore >= 90 ? "green" : maxScore >= 40 ? "orange" : "red";
 
   return (
     <div className="w-1/2 mt-10 mx-auto border-4 border-gray-300 ">
       <div className="w-full bg-gray-200 h-2 mb-4">
-        <div className="bg-blue-400 h-2" style={{ width: `${progress}%` }}></div>
+        <div
+          className="bg-blue-400 h-2"
+          style={{ width: `${progress}%` }}
+        ></div>
       </div>
       <div className="w-[80%] mx-auto m-10">
         <h1>
           Question {currentIndex + 1} of {decodedData.length}
         </h1>
         <h2 className="text-sm font-semibold">{currentQuiz.category}</h2>
-        <div className="text-sm"> {DifficultyStars(currentQuiz.difficulty)}</div>
+        <div className="text-sm">
+          {" "}
+          {DifficultyStars(currentQuiz.difficulty)}
+        </div>
         <p className="mt-4">{currentQuiz.question}</p>
         <div className="mt-4">
           <ul className="list-none  mt-12 grid grid-cols-2 gap-4">
@@ -158,7 +168,6 @@ import quizData from "./questions.json";
       </div>
     </div>
   );
-}
+};
 
-
-export default Home
+export default Home;
