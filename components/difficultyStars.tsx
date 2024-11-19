@@ -1,4 +1,3 @@
-
 import React, { useCallback } from "react";
 
 interface DifficultyStarsProps {
@@ -14,14 +13,14 @@ const DifficultyStars: React.FC<DifficultyStarsProps> = ({ difficulty }) => {
 
     return (
       <div className="flex space-x-1">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <svg
             key={i}
             xmlns="http://www.w3.org/2000/svg"
-            fill={i < stars ? "light-gray" : "gray"}
+            fill={i < stars ? "light-gray" : "#D1D5DB"}
             viewBox="0 0 24 24"
-            width="15"
-            height="15"
+            width="17"
+            height="17"
           >
             <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
           </svg>
