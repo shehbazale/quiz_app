@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import decodedData from "@/utils/decodeData";
 import QuizProgressBar from "../components/quizProgressBar";
 import QuestionCard from "../components/questionCard";
@@ -51,7 +51,7 @@ const Home = () => {
         setSolvedQuestions((prev) => prev + 1);
       }
     },
-    [currentQuiz, lowestScore, maxScore, optionSelected]
+    [currentQuiz, optionSelected]
   );
      const nextQuestionData = {currentIndex, setCurrentIndex, setOptionSelected, setSelectedAns,  setAnsStatus,decodedData}
    const handleNextQuestion = () =>{
