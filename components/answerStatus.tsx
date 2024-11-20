@@ -4,7 +4,6 @@ import React from "react";
 interface AnswerStatusProps {
   answerStatus: string;
 }
-
 const AnswerStatus: React.FC<AnswerStatusProps> = ({ answerStatus }) => {
     if(!answerStatus) return;
   return (

@@ -18,7 +18,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                const isSelected = selectedAns === option;
         return (
             <li
-            className={`border border-gray-300 rounded-md p-2 hover:shadow-lg ${
+            className={`border border-gray-300 rounded-md p-2 transition-all ease-in-out duration-500 hover:shadow-lg ${
               isSelected
                 ? isCorrect ? "bg-green-300"  : "bg-red-400"  
                 : ""
