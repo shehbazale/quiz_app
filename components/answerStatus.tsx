@@ -7,11 +7,9 @@ interface AnswerStatusProps {
 const AnswerStatus: React.FC<AnswerStatusProps> = ({ answerStatus }) => {
     if(!answerStatus) return;
   return (
-    // answerStatus && (
       <div className="mt-8 text-lg font-semibold text-center">
         {answerStatus}
       </div>
-    // )
   );
 };
 

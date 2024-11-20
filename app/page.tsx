@@ -8,16 +8,12 @@ import DifficultyStars from "../components/difficultyStars";
 import ScoreBar from "../components/scoreBar";
 import  { checkAnswer,nextQuestion, restartQuiz } from "../utils/helperFunction";
 import ResultPage from "@/components/ResultPage";
+import { ScoreProps } from "@/dataType/type";
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectAns, setSelectedAns] = useState<string | null>(null);
   const [answerStatus, setAnsStatus] = useState<string>("");
-  const [score, setScore] = useState<{
-    maxScore: number | null,
-    minScore: number | null,
-    correctAnswer: number | null,
-    solvedQuestions : number | null
-  }>({
+  const [score, setScore] = useState<ScoreProps>({
     maxScore: 0,
     minScore: 100,
     correctAnswer:0,
@@ -28,6 +24,7 @@ const Home = () => {
   const [loading, setloading] = useState<boolean>(true);
   const [resultPage, setResultPage] = useState(false);
   const currentQuiz = decodedData[currentIndex];
+  
   useEffect(() => {
     if (shuffledOptions.length === 0) {
       setloading(true);

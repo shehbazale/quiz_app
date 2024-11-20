@@ -11,7 +11,8 @@ import  DecodedData  from "@/utils/decodeData";
     setResultPage,
   }: QuestionProp) => {
     if (currentIndex < decodedData.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      // setCurrentIndex(currentIndex + 1);
+      setCurrentIndex((d) => d + 1);
       setOptionSelected(false);
       setSelectedAns(null);
       setAnsStatus("");
@@ -29,22 +30,12 @@ import  DecodedData  from "@/utils/decodeData";
   }: RestartQuizParams) => {
     setResultPage(false);
     setCurrentIndex(0);
-    setScore((prev) => ({
-      ...prev,
+    setScore({
       maxScore: 0,
-    }));
-    setScore((prev) => ({
-      ...prev,
       correctAnswer: 0,
-    }));
-    setScore((prev) => ({
-      ...prev,
       minScore: 100,
-    }));
-    setScore((prev) => ({
-      ...prev,
       solvedQuestions: 0,
-    }));
+    });
     setOptionSelected(false);
     setAnsStatus(" ");
   };

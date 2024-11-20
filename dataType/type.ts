@@ -45,8 +45,6 @@ export interface QuestionProp {
     setAnsStatus: (value: string) => void;
   };
 
-
-
   // *****************************  check answer data type ******************
     interface Quiz {
     correct_answer: string;
@@ -55,18 +53,21 @@ export interface QuestionProp {
     difficulty: string;
     question: string;
   }
+
+  export interface ScoreProps {
+    maxScore: number | null,
+    minScore: number | null,
+    correctAnswer: number | null,
+    solvedQuestions : number | null
+  }
+
   export interface CheckAnswerParams {
     option: string;
     currentQuiz: Quiz;
     setSelectedAns: (value: string) => void;
     setOptionSelected: (value: boolean) => void;
     setAnsStatus: (value: string) => void;
-    setScore: React.Dispatch<React.SetStateAction<{
-      maxScore: number | null;
-      minScore: number | null;
-      correctAnswer: number | null;
-      solvedQuestions: number | null;
-    }>>;
+    setScore: React.Dispatch<React.SetStateAction<ScoreProps>>;
     optionSelected: boolean;
     totalQuestions: number;
   }
