@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import decodedData from "@/utils/decodeData";
 import QuizProgressBar from "../components/quizProgressBar";
 import QuestionCard from "../components/questionCard";
