@@ -5,7 +5,7 @@ const ResultPage:React.FC<ResultPageProps> = ({
     maxScore,
     restartQuiz
 }) => {
-  const result = maxScore > 40 ? 'Congtrats Pass' : 'Sorry! Fail'
+  const result = maxScore > 40 ? 'Pass' : 'Fail'
   return (
     <>
    <div className='flex  flex-col justify-center items-center p-6 h-72 space-y-3'>
