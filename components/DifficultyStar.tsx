@@ -7,11 +7,25 @@ interface DifficultyStarsProps {
 const DifficultyStars: React.FC<DifficultyStarsProps> = ({ difficulty }) => {
 
   const checkDifficulty = useCallback(() => {
+    // let stars = 0;
+    // if (difficulty === "easy") stars = 1;
+    // else if (difficulty === "medium") stars = 2;
+    // else if (difficulty === "hard") stars = 3;
     let stars = 0;
-    if (difficulty === "easy") stars = 1;
-    else if (difficulty === "medium") stars = 2;
-    else if (difficulty === "hard") stars = 3;
 
+    switch (difficulty) {
+      case "easy":
+        stars = 1;
+        break;
+      case "medium":
+        stars = 2;
+        break;
+      case "hard":
+        stars = 3;
+        break;
+      default:
+        stars = 0
+    }
     return (
       <div className="flex space-x-1">
         {[...Array(3)].map((_, i) => (
