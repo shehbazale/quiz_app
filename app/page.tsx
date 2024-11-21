@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import decodedData from "@/utils/decodeData";
-import QuizProgressBar from "../components/quizProgressBar";
+import QuizProgressBar from "../components/QuizProgressBar";
 import QuestionCard from "../components/questionCard";
 import AnswerStatus  from "../components/answerStatus"
-import DifficultyStars from "../components/difficultyStars";
-import ScoreBar from "../components/scoreBar";
+import DifficultyStars from "../components/DifficultyStars";
+import ScoreBar from "../components/ScoreBar";
 import  { checkAnswer,nextQuestion, restartQuiz } from "../utils/helperFunction";
 import ResultPage from "@/components/ResultPage";
 import { ScoreProps } from "@/dataType/type";
