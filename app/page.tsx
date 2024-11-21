@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import decodedData from "@/utils/decodeData";
-import QuizProgressBar from "../components/QuizProgressBar";
+import ProgressBarQuiz from "../components/ProgressBarQuiz";
 import QuestionCard from "../components/QuestionCards";
 import AnswerStatus from "../components/AnswersStatus"
 import DifficultyStars from "../components/DifficultyStar";
-import ScoreBar from "../components/ScoreBar";
+import QuizScoreBar from "../components/QuizScoreBar";
 import { checkAnswer, nextQuestion, restartQuiz } from "../utils/helperFunction";
 import ResultPage from "@/components/ResultPage";
 import { ScoreProps } from "@/dataType/type";
@@ -95,7 +95,7 @@ const Home = () => {
               />
             </>) : (
               <>
-                <QuizProgressBar progress={progress} />
+                <ProgressBarQuiz progress={progress} />
                 <div className="w-[80%] mx-auto m-4 md:m-10">
                   <h1>
                     Question {currentIndex + 1} of {decodedData.length}
@@ -123,7 +123,7 @@ const Home = () => {
                       Next Question
                     </button>
                   </div>
-                  <ScoreBar
+                  <QuizScoreBar
                     correctRatio={correctRatio}
                     lowestScore={score.minScore!}
                     maxScore={score.maxScore!}

@@ -20,7 +20,7 @@ export interface QuestionProp {
     optionSelected: boolean;
   }
 // ***************************** Score bar data type *********************************
-  export interface ScoreBarProps {
+  export interface QuizScoreBarProps {
     correctRatio: number;
     lowestScore: number;
     maxScore: number;

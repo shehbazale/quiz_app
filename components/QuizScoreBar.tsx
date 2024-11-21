@@ -1,7 +1,7 @@
 import React from "react";
-import { ScoreBarProps } from "../dataType/type";
+import { QuizScoreBarProps } from "../dataType/type";
 
-const ScoreBar: React.FC<ScoreBarProps> = ({
+const QuizScoreBar: React.FC<QuizScoreBarProps> = ({
   correctRatio,
   lowestScore,
   maxScore,
@@ -38,4 +38,4 @@ const ScoreBar: React.FC<ScoreBarProps> = ({
   );
 };
 
-export default ScoreBar;
+export default QuizScoreBar;

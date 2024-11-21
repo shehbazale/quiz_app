@@ -1,10 +1,10 @@
 import React from "react";
 
-interface QuizProgressBarProps {
+interface ProgressBarQuizProps {
   progress: number;
 }
 
-const QuizProgressBar: React.FC<QuizProgressBarProps> = ({ progress }) => {
+const ProgressBarQuiz: React.FC<ProgressBarQuizProps> = ({ progress }) => {
   return (
     <div className="w-full bg-gray-200 h-4 mb-4">
       <div
@@ -15,4 +15,4 @@ const QuizProgressBar: React.FC<QuizProgressBarProps> = ({ progress }) => {
   );
 };
 
-export default QuizProgressBar;
+export default ProgressBarQuiz;
