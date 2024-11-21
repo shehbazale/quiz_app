@@ -1,15 +1,14 @@
-
 import React from "react";
-
 interface AnswerStatusProps {
   answerStatus: string;
 }
+
 const AnswerStatus: React.FC<AnswerStatusProps> = ({ answerStatus }) => {
-    if(!answerStatus) return;
+  if (!answerStatus) return;
   return (
-      <div className="mt-8 text-lg font-semibold text-center">
-        {answerStatus}
-      </div>
+    <div className="mt-8 text-lg font-semibold text-center">
+      {answerStatus}
+    </div>
   );
 };
 

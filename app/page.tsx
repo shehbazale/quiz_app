@@ -2,11 +2,11 @@
 import { useState, useEffect } from "react";
 import decodedData from "@/utils/decodeData";
 import QuizProgressBar from "../components/QuizProgressBar";
-import QuestionCard from "../components/questionCard";
-import AnswerStatus  from "../components/answerStatus"
-import DifficultyStars from "../components/DifficultyStars";
+import QuestionCard from "../components/QuestionCards";
+import AnswerStatus from "../components/AnswersStatus"
+import DifficultyStars from "../components/DifficultyStar";
 import ScoreBar from "../components/ScoreBar";
-import  { checkAnswer,nextQuestion, restartQuiz } from "../utils/helperFunction";
+import { checkAnswer, nextQuestion, restartQuiz } from "../utils/helperFunction";
 import ResultPage from "@/components/ResultPage";
 import { ScoreProps } from "@/dataType/type";
 const Home = () => {
@@ -16,15 +16,15 @@ const Home = () => {
   const [score, setScore] = useState<ScoreProps>({
     maxScore: 0,
     minScore: 100,
-    correctAnswer:0,
-    solvedQuestions:0
+    correctAnswer: 0,
+    solvedQuestions: 0
   });
   const [optionSelected, setOptionSelected] = useState<boolean>(false);
   const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
   const [loading, setloading] = useState<boolean>(true);
   const [resultPage, setResultPage] = useState(false);
   const currentQuiz = decodedData[currentIndex];
-  
+
   useEffect(() => {
     if (shuffledOptions.length === 0) {
       setloading(true);
@@ -43,7 +43,7 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [currentQuiz]);
 
- const nextQuestionData = {
+  const nextQuestionData = {
     currentIndex,
     setCurrentIndex,
     setOptionSelected,

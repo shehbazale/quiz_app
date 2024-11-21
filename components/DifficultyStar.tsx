@@ -5,7 +5,7 @@ interface DifficultyStarsProps {
 }
 
 const DifficultyStars: React.FC<DifficultyStarsProps> = ({ difficulty }) => {
-  
+
   const checkDifficulty = useCallback(() => {
     let stars = 0;
     if (difficulty === "easy") stars = 1;
